@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<history>
+<session>
+<command time_stamp="175c6526887">%-- 11/14/20 06:34:51 PM --%</command>
+<command execution_time="16">1+2</command>
+</session>
+<session>
+<command time_stamp="175cee953a1">%-- 11/16/20 10:36:39 AM --%</command>
+<command execution_time="7">1+2</command>
+<command error="true" execution_time="675">PREFDIR</command>
+<command execution_time="3">prefdir</command>
+<command execution_time="3" repeat="2">fullfile(matlabroot,'bin','mnatlab')</command>
+<command batch="1" error="true">sh / bash:</command>
+<command batch="1" error="true">$ export MATLAB_PREFDIR=&lt;/home/liu/Matlab/tmp&gt;</command>
+<command batch="1" error="true">$ &lt;/usr/local/MATLAB/R2019b/bin/mnatlab&gt;</command>
+<command batch="1" error="true">csh / tcsh:</command>
+<command batch="1" error="true">$ setenv MATLAB_PREFDIR &lt;/home/liu/Matlab/tmp&gt;</command>
+<command batch="1" error="true" execution_time="27">$ &lt;/usr/local/MATLAB/R2019b/bin/mnatlab&gt;</command>
+<command batch="2" error="true">sh :</command>
+<command batch="2" error="true">$ export MATLAB_PREFDIR=&lt;/home/liu/Matlab/tmp&gt;</command>
+<command batch="2" error="true">$ &lt;/usr/local/MATLAB/R2019b/bin/mnatlab&gt;</command>
+<command batch="2" error="true">csh / tcsh:</command>
+<command batch="2" error="true">$ setenv MATLAB_PREFDIR &lt;/home/liu/Matlab/tmp&gt;</command>
+<command batch="2" error="true" execution_time="712">$ &lt;/usr/local/MATLAB/R2019b/bin/mnatlab&gt;</command>
+<command batch="3" error="true">$ export MATLAB_PREFDIR=&lt;/home/liu/Matlab/tmp&gt;</command>
+<command batch="3" error="true" execution_time="6">$ &lt;/usr/local/MATLAB/R2019b/bin/mnatlab&gt;</command>
+<command error="true" execution_time="9">export MATLAB_PREFDIR=&lt;/home/liu/Matlab/tmp&gt;</command>
+<command batch="4" error="true" repeat="2">sh / bash:</command>
+<command batch="4" error="true">$ export MATLAB_PREFDIR=&lt;/home/liu/Matlab/tmp&gt;</command>
+<command batch="4" error="true">$ &lt;/usr/local/MATLAB/R2019b/bin/mnatlab&gt;</command>
+<command batch="4" error="true">csh / tcsh:</command>
+<command batch="4" error="true">$ setenv MATLAB_PREFDIR &lt;/home/liu/Matlab/tmp&gt;</command>
+<command batch="4" error="true" execution_time="7">$ &lt;/usr/local/MATLAB/R2019b/bin/mnatlab&gt;</command>
+<command error="true" execution_time="30">MATLAB_PREFDIR</command>
+<command execution_time="7">prefdir</command>
+</session>
+</history>

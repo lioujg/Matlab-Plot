@@ -1,0 +1,11 @@
+#MATLAB Preferences
+#Mon Nov 16 10:37:57 CST 2020
+MatlabExitConfirm=Bfalse
+mlint-configurations-list=S/tmp/.matlab/R2019b/MLintDefaultSettings.txt
+NV_04d9f5ba4af91141089=S1607942098798
+RLOrderB2_WB_2014b_1=S0:1:
+RLHiddenB2_WB_2014b_1=I16376
+CommandWindowClearConfirmation=Btrue
+RLWidthB2_WB_2014b_1_1=I130
+RLWidthB2_WB_2014b_1_0=I130
+RLPrevInitB2_WB_2014b_1=Btrue
