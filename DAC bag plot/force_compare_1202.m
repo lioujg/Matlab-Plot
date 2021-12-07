@@ -4,14 +4,14 @@ close all
 clear all
 
 % parameters for plotting
-bag_select = "2021-12-06-16-19-19.bag";
+bag_select = "broken.bag";
 
-if bag_select == "2021-12-02-13-38-16.bag"
+if bag_select == "2021-12-03-13-28-10.bag"
 %         pos_front_null = 1;
 %         pos_back_null = 1425;
 %         t_front_null = pos_front_null*2;
 %         t_back_null = pos_back_null*2;
-elseif  bag_select == "2021-12-02-11-56-25.bag"
+elseif  bag_select == "broken.bag"
 %         pos_front_null = 1;
 %         pos_back_null = 1124;
 %         t_front_null = pos_front_null*2;
