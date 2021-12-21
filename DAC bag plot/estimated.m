@@ -4,7 +4,7 @@ close all
 clear all
 
 % parameters for plotting
-bag_select = "2021-12-07-11-36-23.bag";
+bag_select = "2021-12-17-11-10-42.bag";
 
 if bag_select == "2021-12-02-13-38-16.bag"
 %         pos_front_null = 1;
