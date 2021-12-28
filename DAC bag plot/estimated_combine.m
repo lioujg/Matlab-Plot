@@ -4,19 +4,25 @@ close all
 clear all
 
 % parameters for plotting
-bag_select = "without_ICL.bag";
+bag_select = "2021-12-21-17-32-56.bag";
 
-if bag_select == "2021-12-02-13-38-16.bag"
+if bag_select == "without_ICL.bag"
 %         pos_front_null = 1;
 %         pos_back_null = 1425;
 %         t_front_null = pos_front_null*2;
 %         t_back_null = pos_back_null*2;
-elseif  bag_select == "2021-12-02-11-56-25.bag"
+elseif  bag_select == "2021-12-21-17-32-56.bag"
 %         pos_front_null = 1;
 %         pos_back_null = 1124;
 %         t_front_null = pos_front_null*2;
 %         t_back_null = pos_back_null*2;
 end
+
+% set ground truth
+ground_truth_m = 5/2;
+ground_truth_Ixx = 0.052083333/2;
+ground_truth_Iyy = 1.692708333/2;
+ground_truth_Izz = 1.692708333/2;
 
 % read data from bag file
 bag = rosbag(bag_select);
@@ -85,7 +91,7 @@ plot(t_, Robot_1_mass, 'b', 'Linewidth', 2)
 hold on
 plot(t_, Robot_2_mass, 'r', 'Linewidth', 2)
 hold on
-yline(5/2,'--','ground truth');
+yline(ground_truth_m,'--','ground truth');
 grid on
 ylim([-0.5 4])
 xlim([0, t_(end)])
@@ -101,7 +107,7 @@ plot(t_, Robot_1_inertia_Ixx, 'b', 'Linewidth', 2)
 hold on
 plot(t_, Robot_2_inertia_Ixx, 'r', 'Linewidth', 2)
 hold on
-yline(0.052083333/2,'--','ground truth');
+yline(ground_truth_Ixx,'--','ground truth');
 grid on
 ylim([0.0 0.1])
 xlim([0, t_(end)])
@@ -116,7 +122,7 @@ plot(t_, Robot_1_inertia_Iyy, 'b', 'Linewidth', 2)
 hold on
 plot(t_, Robot_2_inertia_Iyy, 'r', 'Linewidth', 2)
 hold on
-yline(1.692708333/2,'--','ground truth');
+yline(ground_truth_Iyy,'--','ground truth');
 grid on
 ylim([0.1 0.9])
 xlim([0, t_(end)])
@@ -129,7 +135,7 @@ plot(t_, Robot_1_inertia_Izz, 'b', 'Linewidth', 2)
 hold on
 plot(t_, Robot_2_inertia_Izz, 'r', 'Linewidth', 2)
 hold on
-yline(1.692708333/2,'--','ground truth');
+yline(ground_truth_Izz,'--','ground truth');
 grid on
 ylim([-0.3 0.9])
 xlim([0, t_(end)])

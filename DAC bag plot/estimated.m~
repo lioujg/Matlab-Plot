@@ -155,15 +155,6 @@ legend('$I_{zz} 1$', '$I_{zz} 2$', 'Interpreter', 'latex')
 figure(3)
 Robot_mass_mix = Robot_1_mass + Robot_2_mass;
 Robot_inertia_Izz_mix = Robot_1_inertia_Izz + Robot_2_inertia_Izz;
-Robot_mass_err_nor = abs((Robot_mass_mix - 5)/5);
-Robot_inertia_Izz_err_nor = abs((Robot_inertia_Izz_mix - 1.692708333)/1.692708333);
-semilogy(t_, Robot_mass_err_nor, 'Linewidth', 2)
-hold on
-semilogy(t_, Robot_inertia_Izz_err_nor, 'Linewidth', 2)
-grid on
-ylim([0.000001, 100])
-xlim([0, t_(end)])
-y_label = ylabel('$\frac{\left\Vert\widetilde o\right\Vert}{\left\Vert o\right\Vert}$', 'Interpreter', 'latex', 'rotation', 0);
-set(y_label, 'Units', 'Normalized', 'Position', [-0.13, 0.41], 'FontSize',14);
-xlabel('Time (sec)', 'Fontsize', 11)
-legend('$\frac{\left\Vert\widetilde m\right\Vert}{\left\Vert m\right\Vert}$', '$\frac{\left\Vert\widetilde I_{zz}\right\Vert}{\left\Vert I_{zz}\right\Vert}$', 'Interpreter', 'latex', 'FontSize',14)
+Robot_mass_err_nor = abs((Robot_mass_mix - 5)/5;
+Robot_inertia_Izz_err_nor = (Robot_inertia_Izz_mix - 1.692708333)/1.692708333;
+plot(t_, )
