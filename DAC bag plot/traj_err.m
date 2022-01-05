@@ -4,7 +4,7 @@ close all
 clear all
 
 % parameters for plotting
-bag_select = "without_ICL.bag";
+bag_select = "2021-12-21-17-32-56.bag";
 
 if bag_select == "2021-12-21-17-32-56.bag"
     pos_back_null = 690;
