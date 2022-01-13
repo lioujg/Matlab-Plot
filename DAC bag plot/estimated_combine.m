@@ -1,7 +1,7 @@
 % Plot
 % read experiment data from bag file and plot the trajectory
 close all
-clear all
+% clear all
 
 % parameters for plotting
 bag_select = "2021-12-21-17-32-56.bag";
@@ -87,9 +87,9 @@ t_ = linspace(0, time_duration, length(Robot_1_mass));
 
 figure(1)
 subplot('Position', [0.17, 0.1, 0.76, 0.8]);
-plot(t_, Robot_1_mass, 'b', 'Linewidth', 2)
+plot(t_, Robot_1_mass, 'b-*', 'Linewidth', 1.5, 'MarkerIndices',1:30:length(t_))
 hold on
-plot(t_, Robot_2_mass, 'r', 'Linewidth', 2)
+plot(t_, Robot_2_mass, 'r-.', 'Linewidth', 2)
 hold on
 yline(ground_truth_m,'--','ground truth');
 grid on
@@ -103,9 +103,9 @@ title('Mass', 'Fontsize', 11)
 
 figure(2)
 set(subplot(311), 'Position', [0.17, 0.7, 0.76, 0.2])
-plot(t_, Robot_1_inertia_Ixx, 'b', 'Linewidth', 2)
+plot(t_, Robot_1_inertia_Ixx, 'b-*', 'Linewidth', 1.5, 'MarkerIndices',1:30:length(t_))
 hold on
-plot(t_, Robot_2_inertia_Ixx, 'r', 'Linewidth', 2)
+plot(t_, Robot_2_inertia_Ixx, 'r-.', 'Linewidth', 2)
 hold on
 yline(ground_truth_Ixx,'--','ground truth');
 grid on
@@ -118,9 +118,9 @@ legend('$I_{xx} 1$', '$I_{xx} 2$', 'Interpreter', 'latex')
 title('Inertia', 'Fontsize', 11)
 
 set(subplot(312), 'Position', [0.17, 0.4, 0.76, 0.2])
-plot(t_, Robot_1_inertia_Iyy, 'b', 'Linewidth', 2)
+plot(t_, Robot_1_inertia_Iyy, 'b-*', 'Linewidth', 1.5, 'MarkerIndices',1:30:length(t_))
 hold on
-plot(t_, Robot_2_inertia_Iyy, 'r', 'Linewidth', 2)
+plot(t_, Robot_2_inertia_Iyy, 'r-.', 'Linewidth', 2)
 hold on
 yline(ground_truth_Iyy,'--','ground truth');
 grid on
@@ -131,9 +131,9 @@ set(y_label, 'Units', 'Normalized', 'Position', [-0.13, 0.41]);
 legend('$I_{yy} 1$', '$I_{yy} 2$', 'Interpreter', 'latex')
 
 set(subplot(313), 'Position', [0.17, 0.1, 0.76, 0.2])
-plot(t_, Robot_1_inertia_Izz, 'b', 'Linewidth', 2)
+plot(t_, Robot_1_inertia_Izz, 'b-*', 'Linewidth', 1.5, 'MarkerIndices',1:30:length(t_))
 hold on
-plot(t_, Robot_2_inertia_Izz, 'r', 'Linewidth', 2)
+plot(t_, Robot_2_inertia_Izz, 'r-.', 'Linewidth', 2)
 hold on
 yline(ground_truth_Izz,'--','ground truth');
 grid on
