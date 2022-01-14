@@ -4,7 +4,7 @@ close all
 % clear all
 
 % parameters for plotting
-bag_select = "2021-12-21-17-32-56.bag";
+bag_select = "2022-01-14-16-24-22.bag";
 
 if bag_select == "without_ICL.bag"
 %         pos_front_null = 1;
@@ -16,6 +16,10 @@ elseif  bag_select == "2021-12-21-17-32-56.bag"
 %         pos_back_null = 1124;
 %         t_front_null = pos_front_null*2;
 %         t_back_null = pos_back_null*2;
+elseif  bag_select == "2022-01-14-15-29-02.bag"
+elseif  bag_select == "2022-01-14-15-50-09.bag"
+elseif  bag_select == "2022-01-14-16-04-14.bag"
+elseif  bag_select == "2022-01-14-16-24-22.bag"
 end
 
 % set ground truth
