@@ -4,31 +4,28 @@ close all
 % clear all
 
 % parameters for plotting
-bag_select = "cmdf_2.bag";
+bag_select = "fs2D.bag";
 
 if bag_select == "without_ICL.bag"
 %         pos_front_null = 1;
 %         pos_back_null = 1425;
 %         t_front_null = pos_front_null*2;
 %         t_back_null = pos_back_null*2;
-elseif  bag_select == "2021-12-21-17-32-56.bag"
-%         pos_front_null = 1;
-%         pos_back_null = 1124;
-%         t_front_null = pos_front_null*2;
-%         t_back_null = pos_back_null*2;
-elseif  bag_select == "2022-01-14-15-29-02.bag"
-elseif  bag_select == "2022-01-14-15-50-09.bag"
-elseif  bag_select == "2022-01-14-16-04-14.bag"
-elseif  bag_select == "2022-01-14-16-24-22.bag"
 elseif  bag_select == "cmdf_2.bag"
+    ground_truth_m = 8.4;
 elseif  bag_select == "fs2D.bag"
+    ground_truth_m = 8.0;
 end
 
 % set ground truth
-ground_truth_m = 5/2;
+% force command
+% ground_truth_m = 8.4;
 ground_truth_Ixx = 0.052083333/2;
 ground_truth_Iyy = 1.692708333/2;
 ground_truth_Izz = 1.692708333/2;
+
+% force sensor
+% ground_truth_m = 8.0;
 
 % read data from bag file
 bag = rosbag(bag_select);
@@ -58,9 +55,17 @@ Robot_1_inertia_Izz = cellfun(@(m) double(m.Izz), Robot_1_msgStructs);
 payload_bag = select(bag, 'topic', '/robot_2/estimated');
 Robot_2_msgStructs = readMessages(payload_bag, 'DataFormat', 'struct');
 Robot_2_mass = cellfun(@(m) double(m.M), Robot_2_msgStructs);
-Robot_2_inertia_Ixx = cellfun(@(m) double(m.Ixx), Robot_1_msgStructs);
-Robot_2_inertia_Iyy = cellfun(@(m) double(m.Iyy), Robot_1_msgStructs);
-Robot_2_inertia_Izz = cellfun(@(m) double(m.Izz), Robot_1_msgStructs);
+Robot_2_inertia_Ixx = cellfun(@(m) double(m.Ixx), Robot_2_msgStructs);
+Robot_2_inertia_Iyy = cellfun(@(m) double(m.Iyy), Robot_2_msgStructs);
+Robot_2_inertia_Izz = cellfun(@(m) double(m.Izz), Robot_2_msgStructs);
+
+% obtain payload mass estimated by Robot 3
+payload_bag = select(bag, 'topic', '/robot_3/estimated');
+Robot_3_msgStructs = readMessages(payload_bag, 'DataFormat', 'struct');
+Robot_3_mass = cellfun(@(m) double(m.M), Robot_3_msgStructs);
+Robot_3_inertia_Ixx = cellfun(@(m) double(m.Ixx), Robot_3_msgStructs);
+Robot_3_inertia_Iyy = cellfun(@(m) double(m.Iyy), Robot_3_msgStructs);
+Robot_3_inertia_Izz = cellfun(@(m) double(m.Izz), Robot_3_msgStructs);
 
 pos_front_null = 1;
 t_front_null = 2;
@@ -70,6 +75,7 @@ t_back_null = pos_back_null*2;
 % delete useless points
 Robot_1_mass(pos_back_null:end) = [];
 Robot_2_mass(pos_back_null:end) = [];
+Robot_3_mass(pos_back_null:end) = [];
 Robot_1_inertia_Ixx(pos_back_null:end) = [];
 Robot_1_inertia_Iyy(pos_back_null:end) = [];
 Robot_1_inertia_Izz(pos_back_null:end) = [];
@@ -80,6 +86,7 @@ t(t_back_null:end) = [];
 
 Robot_1_mass(1:pos_front_null) = [];
 Robot_2_mass(1:pos_front_null) = [];
+Robot_3_mass(1:pos_front_null) = [];
 Robot_1_inertia_Ixx(1:pos_front_null) = [];
 Robot_1_inertia_Iyy(1:pos_front_null) = [];
 Robot_1_inertia_Izz(1:pos_front_null) = [];
@@ -97,14 +104,18 @@ plot(t_, Robot_1_mass, 'b-*', 'Linewidth', 1.5, 'MarkerIndices',1:30:length(t_))
 hold on
 plot(t_, Robot_2_mass, 'r-.', 'Linewidth', 2)
 hold on
+plot(t_, Robot_3_mass, 'g--', 'Linewidth', 2)
+hold on
+plot(t_, Robot_1_mass + Robot_2_mass + Robot_3_mass, 'k:', 'Linewidth', 2)
+hold on
 yline(ground_truth_m,'--','ground truth');
 grid on
-ylim([-0.5 4])
+ylim([-0.5 9])
 xlim([0, t_(end)])
 y_label = ylabel('$m$ (kg)', 'Interpreter', 'latex', 'rotation', 0);
 set(y_label, 'Units', 'Normalized', 'Position', [-0.13, 0.47]);
 xlabel('Time (sec)', 'Fontsize', 11)
-legend('$m_1$', '$m_2$', 'Interpreter', 'latex')
+legend('$m_1$', '$m_2$', '$m_3$', '$m_{total}$', 'Interpreter', 'latex', 'Location','southeast')
 title('Mass', 'Fontsize', 11)
 
 figure(2)
