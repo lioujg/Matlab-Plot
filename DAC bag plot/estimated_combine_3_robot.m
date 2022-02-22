@@ -15,6 +15,8 @@ elseif  bag_select == "cmdf_2.bag"
     ground_truth_m = 8.4;
 elseif  bag_select == "fs2D.bag"
     ground_truth_m = 8.0;
+elseif  bag_select == "wheel_ball_fc.bag"
+    ground_truth_m = 8.42;
 end
 
 % set ground truth
